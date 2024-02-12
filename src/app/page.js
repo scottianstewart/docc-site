@@ -20,7 +20,7 @@ export default function Home() {
   const tetrad = palettes.filter((palette) => palette.length === 4);
 
   return (
-    <main className="m-6 lg:m-10">
+    <main className="m-4 lg:m-10">
       {/* Filter section */}
       {/* <button onClick={() => setFilter(2)}>two</button> */}
 
@@ -37,12 +37,15 @@ export default function Home() {
               <div className="flex pl-6 border-l">
                 {palette.map((color, i) => {
                   return (
-                    <div key={i} className="flex flex-col items-center gap-4">
+                    <div
+                      key={i}
+                      className="flex flex-col items-center gap-4 md:gap-2"
+                    >
                       <div
                         style={{ backgroundColor: colors[color].hex }}
                         className="h-24 w-24 md:h-32 md:w-32 xl:h-48 xl:w-48"
                       />
-                      <div className="text-xs max-w-24 md:max-w-none text-center">
+                      <div className="text-xs max-w-24 h-6 md:h-4 md:max-w-none text-center">
                         {colors[color].name}
                       </div>
                       <div className="text-xs opacity-50 max-w-24 md:max-w-none text-center">
