@@ -28,9 +28,9 @@ export default function Home() {
       <div className="flex flex-wrap gap-y-16">
         {palettes.map((palette, i) => {
           const paletteWidth =
-            (palette.length > 3 && "md:full xl:w-full") ||
-            (palette.length > 2 && "md:full xl:w-1/2") ||
-            "sm:w-full lg:w-1/2 xl:w-1/3";
+            (palette.length > 3 && "md:w-full 2xl:w-full") ||
+            (palette.length > 2 && "lg:w-full 2xl:w-1/2") ||
+            "w-full lg:w-1/2 2xl:w-1/3";
           return (
             <div key={i} className={paletteWidth + " flex gap-6"}>
               <p className="w-6">{i.toString().padStart(3, "0")}</p>
