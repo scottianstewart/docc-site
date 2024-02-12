@@ -15,22 +15,26 @@ export default function Home() {
     .sort((a, b) => a[0] - b[0])
     .map((e) => e[1]);
 
-  const deux = palettes.filter((palette) => palette.length === 2);
-  const trois = palettes.filter((palette) => palette.length === 3);
-  const quatre = palettes.filter((palette) => palette.length === 4);
+  const dyad = palettes.filter((palette) => palette.length === 2);
+  const triad = palettes.filter((palette) => palette.length === 3);
+  const tetrad = palettes.filter((palette) => palette.length === 4);
 
   return (
     <main className="m-10">
       {/* Filter section */}
       {/* <button onClick={() => setFilter(2)}>two</button> */}
 
-      <p className="font-bold opacity-50 mb-16 mt-16">2色の配色帖</p>
-      <div className="flex flex-wrap gap-16">
-        {deux.map((palette, i) => {
+      <p className="font-bold mb-16">2色の配色帖</p>
+      <div className="flex flex-wrap gap-y-16">
+        {palettes.map((palette, i) => {
+          const paletteWidth =
+            (palette.length > 3 && "w-100") ||
+            (palette.length > 2 && "w-1/2") ||
+            "w-1/3";
           return (
-            <div key={i} className="w-50 flex gap-6">
-              <p className="w-6 opacity-50">{i.toString().padStart(3, "0")}</p>
-              <div className="flex border-l pl-6 border-black/50">
+            <div key={i} className={paletteWidth + " flex gap-6"}>
+              <p className="w-6">{i.toString().padStart(3, "0")}</p>
+              <div className="flex pl-6 border-l">
                 {palette.map((color, i) => {
                   return (
                     <div key={i} className="flex flex-col items-center gap-4">
@@ -38,55 +42,7 @@ export default function Home() {
                         style={{ backgroundColor: colors[color].hex }}
                         className="h-48 w-48"
                       />
-                      <div className="opacity-50">{colors[color].name}</div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <p className="font-bold opacity-50 mb-16 mt-16">3色の配色帖</p>
-      <div className="flex flex-wrap gap-16">
-        {trois.map((palette, i) => {
-          return (
-            <div key={i} className="w-50 flex gap-6">
-              <p className="w-6 opacity-50">{i.toString().padStart(3, "0")}</p>
-              <div className="flex border-l pl-6 border-black/50">
-                {palette.map((color, i) => {
-                  return (
-                    <div key={i} className="flex flex-col items-center gap-4">
-                      <div
-                        style={{ backgroundColor: colors[color].hex }}
-                        className="h-48 w-48"
-                      />
-                      <div className="opacity-50">{colors[color].name}</div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <p className="font-bold opacity-50 mb-16 mt-16">4色の配色帖</p>
-      <div className="flex flex-wrap gap-16">
-        {quatre.map((palette, i) => {
-          return (
-            <div key={i} className="w-50 flex gap-6">
-              <p className="w-6 opacity-50">{i.toString().padStart(3, "0")}</p>
-              <div className="flex border-l pl-6 border-black/50">
-                {palette.map((color, i) => {
-                  return (
-                    <div key={i} className="flex flex-col items-center gap-4">
-                      <div
-                        style={{ backgroundColor: colors[color].hex }}
-                        className="h-48 w-48"
-                      />
-                      <div className="opacity-50">{colors[color].name}</div>
+                      <div className="text-xs">{colors[color].name}</div>
                     </div>
                   );
                 })}
