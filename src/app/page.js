@@ -45,6 +45,9 @@ export default function Home() {
                       <div className="text-xs max-w-24 md:max-w-none text-center">
                         {colors[color].name}
                       </div>
+                      <div className="text-xs opacity-50 max-w-24 md:max-w-none text-center">
+                        {colors[color].hex}
+                      </div>
                     </div>
                   );
                 })}
