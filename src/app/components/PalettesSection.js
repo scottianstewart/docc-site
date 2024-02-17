@@ -28,17 +28,19 @@ const PalettesSection = ({ palettes, titleColors }) => {
             "w-full lg:w-1/2 2xl:w-1/3";
           return (
             <div key={i} className={paletteWidth + " flex gap-6"}>
-              <p className="w-6">{palette[0].toString().padStart(3, "0")}</p>
-              <div className="flex pl-6 border-l">
+              <p className="text-sm w-4 lg:pl-6 lg:text-md lg:w-10">
+                {palette[0].toString().padStart(3, "0")}
+              </p>
+              <div className="flex pl-6 border-l w-full">
                 {palette[1].map((color, i) => {
                   return (
                     <div
                       key={i}
-                      className="flex flex-col items-center gap-4 md:gap-2"
+                      className="flex flex-col items-center gap-4 md:gap-2 w-full"
                     >
                       <div
                         style={{ backgroundColor: colors[color].hex }}
-                        className="h-24 w-24 md:h-32 md:w-32 xl:h-48 xl:w-48"
+                        className="h-48 w-full"
                       />
                       <div className="text-xs max-w-24 h-6 md:h-4 md:max-w-none text-center">
                         {colors[color].name}

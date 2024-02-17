@@ -25,7 +25,7 @@ export default function Home() {
   const tetradTitleColors = ["#ae5224", "#00939b", "#40456a", "#fcb315"];
 
   return (
-    <main className="m-4 lg:m-10">
+    <main>
       <PalettesSection palettes={dyad} titleColors={dyadTitleColors} />
       <PalettesSection palettes={triad} titleColors={triadTitleColors} />
       <PalettesSection palettes={tetrad} titleColors={tetradTitleColors} />
