@@ -13,7 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className + " m-4 lg:m-10"}>
-        <h1 className="text-xl">Dictionary of Color Combinations</h1>
+        <h1 className="text-xl font-medium">
+          A Dictionary of Color Combinations
+        </h1>
         {children}
         <Analytics />
       </body>
