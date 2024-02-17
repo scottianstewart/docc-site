@@ -22,8 +22,12 @@ const PalettesSection = ({ palettes, titleColors }) => {
       </div>
       <div className="flex flex-wrap gap-y-16">
         {palettes.map((palette, i) => {
+          const paletteWidth =
+            (palette[1].length > 3 && "w-full") ||
+            (palette[1].length > 2 && "w-full lg:w-1/2") ||
+            "w-full lg:w-1/2 2xl:w-1/3";
           return (
-            <div key={i} className="w-full flex gap-6 h-80 ">
+            <div key={i} className={paletteWidth + " flex gap-6 h-80 "}>
               <p className="text-sm w-4 lg:pl-6 lg:text-md lg:w-10">
                 {palette[0].toString().padStart(3, "0")}
               </p>
