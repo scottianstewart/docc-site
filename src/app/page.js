@@ -1,6 +1,7 @@
 "use client";
 
 import colors from "dictionary-of-colour-combinations";
+import PalettesSection from "./components/PalettesSection";
 
 export default function Home() {
   const map = colors.reduce((map, color, i) => {
@@ -13,52 +14,21 @@ export default function Home() {
 
   const palettes = [...map.entries()]
     .sort((a, b) => a[0] - b[0])
-    .map((e) => e[1]);
+    .map((e, i) => [i.toString(), e[1]]);
 
-  const dyad = palettes.filter((palette) => palette.length === 2);
-  const triad = palettes.filter((palette) => palette.length === 3);
-  const tetrad = palettes.filter((palette) => palette.length === 4);
+  const dyad = palettes.filter((palette) => palette[1].length === 2);
+  const triad = palettes.filter((palette) => palette[1].length === 3);
+  const tetrad = palettes.filter((palette) => palette[1].length === 4);
+
+  const dyadTitleColors = ["#8b835b", "#c27544"];
+  const triadTitleColors = ["#a94151", "#c19f2c", "#97acc8"];
+  const tetradTitleColors = ["#ae5224", "#00939b", "#40456a", "#fcb315"];
 
   return (
     <main className="m-4 lg:m-10">
-      {/* Filter section */}
-      {/* <button onClick={() => setFilter(2)}>two</button> */}
-
-      <p className="font-bold mb-16">2色の配色帖</p>
-      <div className="flex flex-wrap gap-y-16">
-        {palettes.map((palette, i) => {
-          const paletteWidth =
-            (palette.length > 3 && "md:w-full 2xl:w-full") ||
-            (palette.length > 2 && "lg:w-full 2xl:w-1/2") ||
-            "w-full lg:w-1/2 2xl:w-1/3";
-          return (
-            <div key={i} className={paletteWidth + " flex gap-6"}>
-              <p className="w-6">{i.toString().padStart(3, "0")}</p>
-              <div className="flex pl-6 border-l">
-                {palette.map((color, i) => {
-                  return (
-                    <div
-                      key={i}
-                      className="flex flex-col items-center gap-4 md:gap-2"
-                    >
-                      <div
-                        style={{ backgroundColor: colors[color].hex }}
-                        className="h-24 w-24 md:h-32 md:w-32 xl:h-48 xl:w-48"
-                      />
-                      <div className="text-xs max-w-24 h-6 md:h-4 md:max-w-none text-center">
-                        {colors[color].name}
-                      </div>
-                      <div className="text-xs opacity-50 max-w-24 md:max-w-none text-center">
-                        {colors[color].hex}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <PalettesSection palettes={dyad} titleColors={dyadTitleColors} />
+      <PalettesSection palettes={triad} titleColors={triadTitleColors} />
+      <PalettesSection palettes={tetrad} titleColors={tetradTitleColors} />
     </main>
   );
 }
