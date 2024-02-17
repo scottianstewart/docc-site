@@ -27,7 +27,7 @@ const PalettesSection = ({ palettes, titleColors }) => {
             (palette[1].length > 2 && "lg:w-full 2xl:w-1/2") ||
             "w-full lg:w-1/2 2xl:w-1/3";
           return (
-            <div key={i} className={paletteWidth + " flex gap-6"}>
+            <div key={i} className={paletteWidth + " flex gap-6 h-80"}>
               <p className="text-sm w-4 lg:pl-6 lg:text-md lg:w-10">
                 {palette[0].toString().padStart(3, "0")}
               </p>
