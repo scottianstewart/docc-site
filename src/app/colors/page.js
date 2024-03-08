@@ -2,7 +2,7 @@
 
 import colors from "dictionary-of-colour-combinations";
 
-export default function Home() {
+export default function Colors() {
   return (
     <div>
       <div className="flex flex-wrap mt-16 gap-16">
